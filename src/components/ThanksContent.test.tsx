@@ -1,9 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { buildLineUrl, ThanksContent } from "./ThanksContent";
 
 describe("ThanksContent",()=>{
-  beforeEach(()=>sessionStorage.clear());
+  beforeEach(()=>{
+    sessionStorage.clear();
+    vi.stubEnv("NEXT_PUBLIC_LINE_OA_ID","@lanceup");
+  });
   it("creates an official-account chat URL with the reference",()=>{
     const url=buildLineUrl("@lanceup","LU-20260909-1234ABCD","山田 太郎");
     expect(url).toContain("https://line.me/R/oaMessage/%40lanceup/");
@@ -18,6 +21,7 @@ describe("ThanksContent",()=>{
     sessionStorage.setItem("lead_confirmation",JSON.stringify({inquiryId:"LU-20260909-1234ABCD",contactMethod:"line",name:"山田 太郎"}));
     render(<ThanksContent/>);
     expect(screen.getByText("LU-20260909-1234ABCD")).toBeInTheDocument();
-    expect(screen.getByRole("heading",{name:"LINEで相談を続ける"})).toBeInTheDocument();
+    expect(screen.getByRole("heading",{name:"LINEを開いています"})).toBeInTheDocument();
+    expect(screen.getByRole("link",{name:/自動で開かない場合はこちら/})).toHaveAttribute("href",expect.stringContaining("line.me/R/oaMessage"));
   });
 });
