@@ -1,0 +1,1 @@
+export const validContact = { experienceYears:"3〜5年",technologies:"",employmentStatus:"正社員",considerationTiming:"半年以内",desiredCompensation:"",name:"山田 太郎",prefecture:"東京都",age:"32",contactMethod:"email",email:"taro@example.com",phone:"",japaneseAvailable:"yes",privacyConsent:true,attribution:{},website:"",startedAt:1,submissionId:"550e8400-e29b-41d4-a716-446655440000" } as const;

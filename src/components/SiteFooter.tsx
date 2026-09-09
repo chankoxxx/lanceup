@@ -1,0 +1,1 @@
+import Link from"next/link";import{siteConfig}from"@/content/site";export function SiteFooter(){return <footer className="footer"><div className="container footer-row"><div>© {new Date().getFullYear()} {siteConfig.name}</div><nav className="footer-links" aria-label="フッターナビゲーション"><Link href="/privacy">プライバシーポリシー</Link><Link href="/terms">利用上の注意事項</Link></nav></div></footer>}

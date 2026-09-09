@@ -1,0 +1,1 @@
+import type{MetadataRoute}from"next";export default function sitemap():MetadataRoute.Sitemap{const base=process.env.NEXT_PUBLIC_SITE_URL||"https://lanceup.jp",now=new Date();return["","/check","/privacy","/terms"].map((path,i)=>({url:`${base}${path}`,lastModified:now,changeFrequency:i===0?"weekly":"monthly",priority:i===0?1:i===1?.9:.4}))}

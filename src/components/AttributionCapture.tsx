@@ -1,0 +1,3 @@
+"use client";
+import{useEffect}from"react";import{usePathname,useSearchParams}from"next/navigation";import{collectAttribution}from"@/lib/contact";import{track}from"@/lib/tracking";
+export function AttributionCapture(){const pathname=usePathname(),params=useSearchParams();useEffect(()=>{let stored:Record<string,string>={};try{stored=JSON.parse(sessionStorage.getItem("lead_attribution")||"{}")}catch{}const value=collectAttribution(`?${params.toString()}`,location.href,document.referrer,stored);sessionStorage.setItem("lead_attribution",JSON.stringify(value));track("page_view",{page_path:pathname})},[pathname,params]);return null}

@@ -1,0 +1,5 @@
+import type { Metadata } from "next";
+import { LegalLayout } from "@/components/LegalLayout";
+import { siteConfig } from "@/content/site";
+export const metadata:Metadata={title:"利用上の注意事項",description:"サービスのご利用条件と注意事項。",alternates:{canonical:"/terms"}};
+export default function Terms(){return <LegalLayout title="利用上の注意事項"><p>本サービスをご利用になる前に、以下をご確認ください。</p><h2>1. サービス内容</h2><p>本サービスは、ITエンジニアのフリーランスに関する経験・希望の確認と相談受付、および必要に応じた相談先の検討を行う入口です。</p><h2>2. 保証の否認</h2><p>運営者は、案件の紹介・獲得、契約成立、収入、市場価値、希望条件との一致、特定の提携先への紹介を保証しません。最終的な契約や意思決定は、利用者ご自身の判断で行ってください。</p><h2>3. 利用条件</h2><p>利用者は正確かつ最新の情報を入力し、第三者になりすました送信、虚偽入力、営業・勧誘、システムへの妨害などを行わないものとします。外国籍の方の相談には、日本語での業務・面談対応が必要です。</p><h2>4. 個人情報</h2><p>個人情報は、お問い合わせ内容の確認、ご連絡および本サービスに関する対応のために利用します。本人の同意なく提携先その他の第三者へ提供しません。</p><h2>5. 免責</h2><p>運営者は、法令上認められる範囲で、本サービスの利用または利用不能から生じた損害について責任を負わないものとします。</p><h2>6. 内容の変更</h2><p>運営者は、必要に応じて本サービスおよび本注意事項を変更できます。重要な変更は本サイト上でお知らせします。</p><h2>7. 運営者情報</h2><p>運営者：{siteConfig.operatorName}<br/>お問い合わせ先：{siteConfig.contactEmail}</p></LegalLayout>}
