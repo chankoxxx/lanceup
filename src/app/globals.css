@@ -263,3 +263,19 @@ body{font-size:18px}
 .start-assurance{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:17px}
 .start-assurance span{padding:4px 10px;border-radius:999px;color:#50657c;background:#eef3f8;font-size:.75rem;font-weight:800}
 @media(max-width:520px){.start-steps{gap:5px}.start-steps div{min-height:78px;padding:11px 5px}.start-steps span{font-size:.76rem}.start-note{font-size:.8rem}}
+
+/* Mobile reflow: prevent nowrap hero copy from widening the grid beyond the viewport. */
+@media(max-width:800px){
+  .hero-grid,.hero-copy,.hero-grid>*,.hero-line,.hero-main-line,.hero-question-part{min-width:0;max-width:100%}
+  .hero-copy,.signal{width:100%}
+  .hero h1{font-size:clamp(2.05rem,9.2vw,2.75rem);line-height:1.24;overflow-wrap:normal}
+  .hero-main-line,.hero-main-line strong{white-space:normal}
+  .hero-main-line strong{display:block}
+  .hero-question-part{white-space:nowrap}
+  .hero-copy .lead{max-width:100%}
+}
+@media(max-width:380px){
+  .hero h1{font-size:clamp(1.95rem,9vw,2.2rem)}
+  .hero .audience-label{font-size:.8rem}
+  .header-tabs a{padding-inline:11px}
+}
