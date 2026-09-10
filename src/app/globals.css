@@ -284,4 +284,6 @@ body{font-size:18px}
 @media(min-width:1500px){
   .hero h1{font-size:clamp(3.15rem,3.25vw,4rem)}
   .hero-copy{padding-inline:clamp(0px,2vw,38px)}
+  .hero-copy .audience-label,.hero-copy h1,.hero-copy>.lead{left:0}
+  .hero-action,.hero-note{padding-right:0}
 }
