@@ -287,3 +287,32 @@ body{font-size:18px}
   .hero-copy .audience-label,.hero-copy h1,.hero-copy>.lead{left:0}
   .hero-action,.hero-note{padding-right:0}
 }
+
+/* Mobile-only cleanup: remove the obsolete summary, tighten reading, and use a compact CTA bubble. */
+.hero .signal{display:none}
+@media(max-width:800px){
+  .support-section>.container{display:flex;flex-direction:column}
+  .support-intro{display:contents}
+  .support-intro>div:first-child{order:1}
+  .support-grid{order:2;gap:12px;margin-top:24px}
+  .support-promise{order:3;margin-top:14px;padding:18px}
+  .support-flow{order:4}
+  .support-section .title{font-size:clamp(1.85rem,8.4vw,2.25rem);line-height:1.45}
+  .support-section .support-grid article{min-height:0;padding:20px}
+  .support-section .support-grid h3{margin:12px 0 6px;font-size:1.05rem}
+  .support-section .support-grid p{font-size:.94rem;line-height:1.72}
+  .support-promise strong{font-size:.75rem}
+  .support-promise span{font-size:.94rem;line-height:1.72}
+  .quick-panel{right:14px;bottom:calc(14px + env(safe-area-inset-bottom));left:auto;width:auto;padding:0;border:0;border-radius:999px;background:transparent;box-shadow:none}
+  .quick-mobile-link{width:auto!important;min-width:0!important;min-height:50px!important;padding:0 19px!important;border-radius:999px;font-size:.86rem!important;box-shadow:0 12px 30px rgba(20,46,80,.3)!important}
+  .footer{padding-bottom:76px}
+}
+@media(max-width:520px){
+  .site-header .header-inner{padding-bottom:6px}
+  .header-inner .nav{min-height:48px}
+  .brand-mark{width:30px;height:30px;font-size:.67rem}
+  .brand-copy strong{font-size:.94rem}
+  .brand-copy small{font-size:.56rem}
+  .header-tabs{gap:3px;margin-top:1px;padding:0}
+  .header-tabs a{padding:4px 8px;font-size:.67rem}
+}
