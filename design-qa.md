@@ -1,37 +1,39 @@
 # Design QA
 
-- Source visual truth: `C:/Users/H830_/AppData/Local/Temp/codex-clipboard-42d636b5-f041-47a1-b559-2930def5dd74.png`
-- Implementation: `http://localhost:3001/` (Codex in-app browser capture)
-- Viewports: desktop 1440 × 1000 CSS px; mobile 390 × 844 CSS px
-- Density: browser CSS-pixel comparison; source was used as a layout reference rather than a pixel-identical target
-- State: LP initial view and right-panel Step 1; right-panel handoff to `/check` also tested
+- Source visual truth: `C:\Users\H830_\AppData\Local\Temp\codex-clipboard-c2d84cb1-c659-4e96-9d18-6ae1d671224f.png`
+- Implementation: `http://localhost:3001/` (CUA in-app browser capture; the browser API did not expose a filesystem screenshot path)
+- Viewport: 1920 × 900 CSS px, device scale factor 1
+- Source pixels: 1912 × 937
+- Implementation capture: 1920 × 900 CSS px, normalized by matching the desktop viewport width
+- State: landing page, top of page, desktop fixed inquiry panel visible
 
 ## Full-view comparison evidence
 
-The reference establishes a persistent right-hand application form beside the scrolling content. The implementation now follows that composition at desktop widths with a 400px fixed form rail, while retaining the existing navy/orange brand and the project’s four-step funnel. The Hero was intentionally strengthened beyond the pale reference background so the approved main message remains the dominant element.
+The source showed the hero heading extending behind the fixed 40vw inquiry panel and being clipped at the left-column boundary. In the revised capture, the two heading lines fit inside the 1145px content region and remain visually centered. The inquiry panel stays fixed at 760px and the page has no horizontal overflow (`scrollWidth: 1905`, `clientWidth: 1905`).
 
-## Focused region evidence
+## Focused region comparison evidence
 
-- Hero: two-line desktop title at 970px width, orange emphasis and underline on “フリーランスとして”, high-contrast navy/teal background.
-- Fixed form: full-height 400px rail, actual experience/technology inputs, progress, validation and working handoff to `/check` with answers preserved.
-- Mobile: fixed rail becomes a bottom CTA; the title is split into four meaningful lines without breaking Japanese words.
+The hero/title region was checked at 1500, 1600, 1920, and 2560px. At 1920px, the title occupies x=47.8–935.6 while the inquiry panel begins at x=1144.7, leaving clear separation. At 1500px, the title occupies x=28.4–801.7 while the panel begins at x=884.7. No additional focused region was needed because the change only affects desktop hero typography.
 
-## Findings and iteration history
+## Findings
 
-1. P1 — the first implementation used a small link card rather than an input form. Fixed by replacing it with a functional fixed form rail.
-2. P1 — the Hero message lacked contrast and scale. Fixed with a dark brand field, larger type and orange emphasis.
-3. P2 — the existing Hero information card became too narrow beside the fixed form. Fixed by removing that redundant card at desktop widths and giving the headline the full content column.
-4. P2 — the mobile headline broke “通用” across lines. Fixed with phrase-level wrapping rules.
-5. P1 — the first sidebar step navigated away from the LP. Fixed by embedding the complete four-step form in the fixed rail; browser verification confirmed Step 1 → Step 2 with the URL unchanged.
-6. P2 — desktop side margins varied too strongly with viewport size. Fixed with a 90% fluid content width inside the main column and a stable 425px form rail.
+- Earlier P1: desktop hero heading overflowed beneath the fixed inquiry panel and lost text.
+  - Fix: constrained desktop hero type to `clamp(3.15rem, 3.25vw, 4rem)` when the fixed panel is active and reduced desktop inline padding.
+  - Post-fix evidence: heading bounds stay within the content column at every tested desktop breakpoint; no page-level horizontal overflow.
+- Fonts and typography: hierarchy, weight, line-height, and intended two-line title wrapping are preserved; only the oversized desktop scale was corrected.
+- Spacing and layout rhythm: left content and 40vw inquiry panel no longer collide; existing header, hero, CTA, illustration, and form alignment are preserved.
+- Colors and visual tokens: unchanged from the source implementation.
+- Image quality and asset fidelity: the existing supplied hero illustration is unchanged and remains fully visible.
+- Copy and content: unchanged; the complete headline is now visible.
 
-## Final checks
+## Comparison history
 
-- Typography: desktop headline is intentionally oversized; body and card copy were increased globally.
-- Spacing: desktop content and fixed rail do not overlap; measured body width equals client width.
-- Colors: navy, orange, teal, violet and gold remain available and are used across the LP.
-- Images: the supplied screenshot did not require recreating its faint decorative imagery; no misleading stock-person imagery was added.
-- Copy: approved Japanese message and service claims are preserved.
-- Interaction: all four steps remain inside the fixed right panel until successful submission; no browser console warnings or errors.
+1. Source: P1 clipping at the desktop split boundary.
+2. Revision: responsive desktop font sizing and padding constraint added.
+3. Post-fix capture: complete heading visible with clear space before the inquiry panel at 1500–2560px.
+
+## Follow-up polish
+
+No actionable P0/P1/P2 findings remain for this regression.
 
 final result: passed
