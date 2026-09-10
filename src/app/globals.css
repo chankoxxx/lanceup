@@ -127,9 +127,9 @@ body{font-size:19px;background:#f8f9fd}.site-header{min-height:82px;background:r
 }
 @media(min-width:1180px){
   .stories-section .container{width:92%;max-width:1320px}
-  .quick-panel{width:40vw;min-width:500px;max-width:760px;background:radial-gradient(circle at 100% 0,rgba(232,107,50,.1),transparent 27%),linear-gradient(180deg,#fff 0%,#f8fbff 100%);border-left:1px solid #cfdae8;box-shadow:-24px 0 70px rgba(9,34,65,.14)}
+  .quick-panel{width:30vw;min-width:425px;max-width:560px;background:radial-gradient(circle at 100% 0,rgba(232,107,50,.1),transparent 27%),linear-gradient(180deg,#fff 0%,#f8fbff 100%);border-left:1px solid #cfdae8;box-shadow:-24px 0 70px rgba(9,34,65,.14)}
   .quick-panel:before{content:"";position:absolute;z-index:2;top:0;right:0;left:0;height:5px;background:linear-gradient(90deg,#173f73 0%,#5a4e9f 42%,#e86b32 100%)}
-  .site-header,main,.footer{margin-right:clamp(500px,40vw,760px)}
+  .site-header,main,.footer{margin-right:clamp(425px,30vw,560px)}
   .quick-panel-head{padding:20px 22px;border:1px solid #e4d9d2;border-radius:22px;background:linear-gradient(135deg,#fff8f3,#fff 58%,#f1f6fc);box-shadow:0 14px 36px rgba(23,63,115,.08)}
   .quick-panel-head>span{display:inline-flex;padding:5px 11px;border-radius:999px;background:#ffeadf;color:#b64a1e}
   .sidebar-form .input,.sidebar-form .choice{background:rgba(255,255,255,.95);border-color:#bdcad9;box-shadow:0 5px 16px rgba(23,63,115,.04)}
@@ -280,7 +280,7 @@ body{font-size:18px}
   .header-tabs a{padding-inline:11px}
 }
 
-/* Keep the desktop hero type proportional to the space left beside the 40vw form. */
+/* Keep the desktop hero type proportional to the space left beside the 30vw form. */
 @media(min-width:1500px){
   .hero h1{font-size:clamp(3.15rem,3.25vw,4rem)}
   .hero-copy{padding-inline:clamp(0px,2vw,38px)}
