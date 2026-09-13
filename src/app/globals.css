@@ -214,6 +214,21 @@ body{font-size:18px}
 .story-speaker h3{font-size:1.48rem}
 .story-card p{font-size:1.08rem}
 @media(min-width:1500px){.hero h1{font-size:clamp(4.45rem,4.95vw,6rem)}.hero-copy>.lead{font-size:clamp(1.08rem,1.08vw,1.24rem)}}
+@media (min-width:1180px) and (max-width:1699px){
+  .quick-panel{display:block;top:0;right:0;bottom:0;left:auto;width:30vw;min-width:360px;max-width:510px;padding:22px 24px;overflow-y:auto;border:0;border-left:1px solid #cfdae8;border-radius:0}
+  .quick-panel-head,.quick-panel>.sidebar-form{display:block}
+  .quick-mobile-link{display:none!important}
+  .site-header,main,.footer{margin-right:clamp(360px,30vw,510px)}
+  .site-header .container,main .container,.footer .container,.hero>.container{width:calc(100% - 48px);max-width:none}
+  .header-inner{grid-template-columns:auto 1fr}
+  .header-cta{display:none}
+  .header-tabs{grid-column:2;justify-self:end;gap:4px;padding:4px}
+  .header-tabs a{padding:7px 11px;font-size:.78rem}
+  .hero-copy{max-width:none;padding-inline:0}
+  .hero h1{font-size:clamp(3.1rem,3.9vw,4.1rem)}
+  .hero-copy>.lead{max-width:760px;font-size:1.05rem}
+  .hero-action,.hero-note{padding-right:clamp(120px,14vw,210px)}
+}
 @media(max-width:800px){body{font-size:17px}.story-card{padding:28px 24px!important}.story-card p{font-size:1.04rem}.story-speaker h3{font-size:1.26rem}}
 
 /* Two readable testimonial voices and a collision-free hero composition. */
