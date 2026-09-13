@@ -12,7 +12,7 @@ npm run dev
 
 `.env.local` のSMTP項目と通知先を設定すると、フォームの正常送信時に問い合わせ番号付きの日本語通知メールが送られます。Googleタグは `NEXT_PUBLIC_GOOGLE_TAG_ID` が空でも動作します。
 
-LINE連携では `NEXT_PUBLIC_LINE_OA_ID` に公式アカウントのBasic IDまたはPremium ID（`@`を含む）を設定します。送信完了画面のボタンから、問い合わせ番号と氏名が入力されたLINEトーク画面を開けます。PC版LINEでは公式のURLスキームが動作しないため、主にスマートフォン向けです。`NEXT_PUBLIC_LINE_ADD_FRIEND_URL` は予備の友だち追加URLとして使用します。
+LINE連携では `NEXT_PUBLIC_LINE_OA_ID` に公式アカウントのBasic IDまたはPremium ID（`@`を含む）を設定します。スマートフォンでは問い合わせ番号と氏名が入力されたLINEトーク画面、PCでは追加インストールを求めない公式アカウントのQRコード／プロフィール画面を開きます。`NEXT_PUBLIC_LINE_ADD_FRIEND_URL` は予備の友だち追加URLとして使用します。
 
 ## コマンド
 
