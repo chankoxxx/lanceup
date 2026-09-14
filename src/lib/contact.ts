@@ -23,6 +23,7 @@ export const contactSchema = z.object({
   contactMethod: z.enum(["line", "email"], { error: "希望する連絡方法を選択してください" }),
   email: z.union([z.literal(""), z.string().trim().email("正しいメールアドレスを入力してください").max(254)]),
   phone: z.string().trim().max(30).refine((v) => !v || /^[0-9+()\-\s]+$/.test(v), "電話番号の形式を確認してください").optional().default(""),
+  notes: z.string().trim().max(2000, "備考は2,000文字以内で入力してください").optional().default(""),
   japaneseAvailable: z.literal("yes", { error: "日本語での対応可否を確認してください" }),
   privacyConsent: z.literal(true, { error: "個人情報の取り扱いへの同意が必要です" }),
   attribution: attributionSchema.optional().default({}),

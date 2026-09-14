@@ -11,6 +11,10 @@ describe("contactSchema",()=>{
     expect(contactSchema.safeParse({...validContact,contactMethod:"email",email:""}).success).toBe(false);
   });
   it("requires the single privacy consent",()=>expect(contactSchema.safeParse({...validContact,privacyConsent:false}).success).toBe(false));
+  it("allows optional notes up to 2,000 characters",()=>{
+    expect(contactSchema.safeParse({...validContact,notes:"相談したいことがあります"}).success).toBe(true);
+    expect(contactSchema.safeParse({...validContact,notes:"あ".repeat(2001)}).success).toBe(false);
+  });
   it("requires a prefecture and an age from 18 to 99",()=>{
     expect(contactSchema.safeParse({...validContact,prefecture:""}).success).toBe(false);
     expect(contactSchema.safeParse({...validContact,age:"17"}).success).toBe(false);

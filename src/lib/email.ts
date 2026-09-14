@@ -11,7 +11,7 @@ export function buildNotification(input: ContactInput, inquiryId: string, receiv
     ["氏名", input.name], ["年齢", `${input.age}歳`], ["お住まい", input.prefecture], ["希望連絡方法", input.contactMethod === "line" ? "LINE" : "メール"], ["メールアドレス", input.email || "未入力（LINE希望）"], ["電話番号", input.phone || "未入力"],
     ["IT実務経験年数", input.experienceYears], ["使用技術", input.technologies || "未入力"],
     ["現在の雇用形態", input.employmentStatus], ["フリーランス検討時期", input.considerationTiming],
-    ["希望単価・年収", input.desiredCompensation || "未入力"], ["日本語対応", "可能"],
+    ["希望単価・年収", input.desiredCompensation || "未入力"], ["備考・ご相談内容", input.notes || "未入力"], ["日本語対応", "可能"],
     ...Object.entries(input.attribution).map(([key, value]) => [labels[key], value]),
   ];
   return { subject: `【無料チェック：${inquiryId}】${clean(input.name)}様からのお問い合わせ`, text: fields.map(([key, value]) => `${key}: ${clean(value ?? "")}`).join("\n") };
